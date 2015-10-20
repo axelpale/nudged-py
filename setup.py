@@ -21,7 +21,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='nudged',
-    version='0.1.0',
+    version='0.2.0',
     description='Estimate scale, rotation, and translation between two sets of 2D points e.g. for multi-touch gestures or calibration',
     long_description=long_description,
     url='https://github.com/axelpale/nudged-py',
