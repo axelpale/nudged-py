@@ -4,7 +4,9 @@ nudged<sup>0.2.0</sup>
 
 A Python lib to estimate scale, rotation, and translation between two sets of 2D points. Applicable for example in cases where one wants to move objects by multiple fingers or where a large number of points from an eye tracker device are wanted to be corrected based on a few calibration points. In general, you can apply nudged in any situation where you want to move a number of points based on a few sample points.
 
-<img src="http://github.com/axelpale/nudged.py/master/doc/nudged-logo.png?raw=true" alt="Example transformation" width="300"/>
+.. image:: http://github.com/axelpale/nudged.py/master/doc/nudged-logo.png?raw=true
+   :alt: Example transformation
+   :width: 300px
 
 Mathematically speaking, nudged is an optimal least squares estimator for `affine transformation matrices
 <https://en.wikipedia.org/wiki/Affine_transformation>`_ with uniform scaling, rotation, and translation and without reflection and shearing. The estimation has time complexity of O(*n*) that consists of 6n+22 multiplications and 11n+19 additions, where *n* is the cardinality (size) of the point sets. In other words, nudged solves an affine 2D to 2D point set registration problem in linear time.
@@ -90,16 +92,16 @@ In addition to the methods below, it has attributes *s*, *r*, *tx*, *ty* that de
 #transform(points)
 ..................
 
-**Return** an list of transformed points or single point if only a point was given. For example:
+**Return** an list of transformed points or single point if only a point was given. For example::
 
-    trans.transform([1,1])          // [2,2]
-    trans.transform([[1,1]])        // [[2, 2]]
-    trans.transform([[1,1], [2,3]]) // [[2,2], [3,4]]
+    trans.transform([1,1])           # [2,2]
+    trans.transform([[1,1]])         # [[2,2]]
+    trans.transform([[1,1], [2,3]])  # [[2,2], [3,4]]
 
 #get_matrix()
 ............
 
-**Return** an 3x3 augmented transformation matrix in the following list format:
+**Return** an 3x3 augmented transformation matrix in the following list format::
 
     [[s,-r, tx],
      [r, s, ty],
@@ -113,12 +115,12 @@ In addition to the methods below, it has attributes *s*, *r*, *tx*, *ty* that de
 #get_scale()
 ...........
 
-**Return** scaling multiplier, e.g. `0.333` for a threefold shrink.
+**Return** scaling multiplier, e.g. ``0.333`` for a threefold shrink.
 
 #get_translation()
 .................
 
-**Return** `[tx, ty]` where `tx` and `ty` denotes movement along x-axis and y-axis accordingly.
+**Return** ``[tx, ty]`` where ``tx`` and ``ty`` denotes movement along x-axis and y-axis accordingly.
 
 
 
