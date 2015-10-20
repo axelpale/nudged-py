@@ -10,7 +10,7 @@ A Python lib to estimate scale, rotation, and translation between two sets of 2D
    :width: 300px
 
 Mathematically speaking, nudged is an optimal least squares estimator for `affine transformation matrices
-<https://en.wikipedia.org/wiki/Affine_transformation>`_ with uniform scaling, rotation, and translation and without reflection or shearing. The estimation has time complexity of O(*n*) that consists of 6*n*+22 multiplications and 11*n*+19 additions, where *n* is the cardinality (size) of the point sets. In other words, nudged solves an affine 2D to 2D point set registration problem in linear time.
+<https://en.wikipedia.org/wiki/Affine_transformation>`_ with uniform scaling, rotation, and translation and without reflection or shearing. The estimation has time complexity of O(*n*) that consists of *6n+22* multiplications and *11n+19* additions, where *n* is the cardinality (size) of the point sets. In other words, nudged solves an affine 2D to 2D point set registration problem in linear time.
 
 
 
@@ -66,8 +66,8 @@ nudged.estimate(dom, ran)
 
 **Parameters**
 
-- *dom*, domain, list of [x,y] points
-- *ran*, range, list of [x,y] points
+- *dom*: domain, list of [x,y] points
+- *ran*: range, list of [x,y] points
 
 The *dom* and *ran* should have equal length. Different lengths are allowed but additional points in the longer list are ignored in the estimation.
 
