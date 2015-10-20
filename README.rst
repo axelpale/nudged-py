@@ -6,6 +6,7 @@ A Python lib to estimate scale, rotation, and translation between two sets of 2D
 
 .. image:: ../master/doc/nudged-logo.png?raw=true
    :alt: Example transformation
+   :height: 353px
    :width: 300px
 
 Mathematically speaking, nudged is an optimal least squares estimator for `affine transformation matrices
