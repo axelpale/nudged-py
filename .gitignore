@@ -29,6 +29,9 @@ var/
 *.manifest
 *.spec
 
+# PyEnv
+.python-version
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
@@ -55,6 +58,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Virtualenv
+/bin/
+/include/
 
 # OS X
 .DS_Store

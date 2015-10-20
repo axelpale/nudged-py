@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from transform import Transform
+from .transform import Transform
 
 def estimate(domainpoints, rangepoints):
     '''

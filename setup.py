@@ -60,7 +60,7 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    packages=['nudged'],
 
     # Alternatively, if you want to distribute just a my_module.py, uncomment
     # this:
@@ -95,6 +95,6 @@ setup(
     entry_points={},
 
     # To use nose2 to run your package’s tests, add the following
-    tests_require=['nose2'],
+    tests_require=['nose2', 'unittest2'],
     test_suite='nose2.collector.collector',
 )

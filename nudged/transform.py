@@ -24,7 +24,7 @@ class Transform(object):
             # Single point
             return transform_one(p)
         # else
-        return map(transform_one, p)
+        return list(map(transform_one, p))
 
     def get_matrix(self):
         return [[self.s, -self.r, self.tx],

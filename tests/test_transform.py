@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import unittest
+import unittest2 as unittest  # to support Python 2.6
 import nudged
 from math import pi
 

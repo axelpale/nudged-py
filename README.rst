@@ -130,9 +130,16 @@ nudged.Transform#get_translation()
 For developers
 ==============
 
-Run unit tests::
+Follow `instructions to install pyenv`
+<http://sqa.stackexchange.com/a/15257/14918>`_ and then either run quick tests::
 
-    $ python setup.py test
+    $ python2.7 setup.py test
+
+or comprehensive tests for multiple Python versions in ``tox.ini``::
+
+    $ eval "$(pyenv init -)"
+    $ pyenv rehash
+    $ tox
 
 
 
