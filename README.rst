@@ -1,5 +1,5 @@
 ======================
-nudged\ :sup:`0.3.0`
+nudged\ :sup:`0.3.1`
 ======================
 
 A Python lib to estimate scale, rotation, and translation between two sets of 2D points. Applicable for example in cases where one wants to move objects by multiple fingers or where a large number of points from an eye tracker device are wanted to be corrected based on a few calibration points. In general, you can apply nudged in any situation where you want to move a number of points based on a few sample points.
