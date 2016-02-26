@@ -59,3 +59,40 @@ def estimate(domainpoints, rangepoints):
     ty = (-b1 * (ac + bd) - a1 * (ad - bc) + a2 * d1 + b2 * d1) / den
 
     return Transform(s, r, tx, ty)
+
+
+def estimate_error(transform, domainpoints, rangepoints):
+    '''
+    Parameters
+        transform
+            a nudged.Transform instance
+        domainpoints
+            list of [x, y] 2D lists
+        rangepoints
+            list of [x, y] 2D lists
+    '''
+
+    X = transform.transform(domainpoints)
+    Y = rangepoints
+
+    # Allow arrays of different length but
+    # ignore the extra points.
+    N = min(len(X), len(Y))
+
+
+    se = 0.0
+    for i in range(N):
+        a = X[i][0]
+        b = X[i][1]
+        c = Y[i][0]
+        d = Y[i][1]
+
+        dx = a - c
+        dy = b - d
+
+        se += dx * dx + dy * dy
+
+    if N == 0:
+        return 0
+    mse = se / N
+    return mse

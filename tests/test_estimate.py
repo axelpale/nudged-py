@@ -93,5 +93,31 @@ class TestEstimate(unittest.TestCase):
         t = nudged.estimate([[1,1], [1,1]], [[5,5], [7,7]])
         self.assertEqual(t.transform([1,1]), [6,6])
 
+    def test_singleton_domain(self):
+        dom = [0,0]
+        ran = [[1,1], [2,2]]
+        f = lambda: nudged.estimate(dom, ran)
+        self.assertRaises(TypeError, f)
+
+
+
+class TestEstimateError(unittest.TestCase):
+
+    def test_zero_error(self):
+        dom = [[0,0], [1,1]]
+        ran = [[1,1], [2,2]]
+        t = nudged.estimate(dom, ran)
+        mse = nudged.estimate_error(t, dom, ran)
+        self.assertEqual(mse, 0.0)
+
+    def test_error(self):
+        dom = [[0,0],  [1,1],      [2, 2]]
+        ran = [[0,-1], [1,2], [2,-1]]
+        t = nudged.estimate(dom, ran)
+        self.assertEqual(t.transform(dom), [[0,0], [1,0], [2,0]])
+        mse = nudged.estimate_error(t, dom, ran)
+        self.assertEqual(mse, 2.0)
+
+
 if __name__ == '__main__':
     unittest.main()

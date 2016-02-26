@@ -12,6 +12,8 @@ A Python lib to estimate scale, rotation, and translation between two sets of 2D
 Mathematically speaking, nudged is an optimal least squares estimator for `affine transformation matrices
 <https://en.wikipedia.org/wiki/Affine_transformation>`_ with uniform scaling, rotation, and translation and without reflection or shearing. The estimation has time complexity of O(*n*) that consists of *6n+22* multiplications and *11n+19* additions, where *n* is the cardinality (size) of the point sets. In other words, nudged solves an affine 2D to 2D point set registration problem in linear time.
 
+Available also [in JavaScript](https://www.npmjs.com/package/nudged).
+
 
 
 Install
@@ -60,18 +62,39 @@ API
 ===
 
 
-nudged.estimate(dom, ran)
+nudged.estimate(domain, range)
 ------------------------------------------
-
 
 **Parameters**
 
-- *dom*: domain, list of [x,y] points
-- *ran*: range, list of [x,y] points
+- *domain*: list of [x,y] points
+- *range*: list of [x,y] points
 
-The *dom* and *ran* should have equal length. Different lengths are allowed but additional points in the longer list are ignored in the estimation.
+The *domain* and *range* should have equal length. Different lengths are allowed but additional points in the longer list are ignored.
 
 **Return** a new *nudged.Transform(...)* instance.
+
+
+nudged.estimate_error(transform, domain, range)
+-----------------------------------------------
+
+Compute mean squared distance between the point pairs of the domain after the given transformation and the range. If the transform was estimated with the given domain and range, then the result is the mean squared error (MSE) of the estimation.
+
+**Parameters**
+
+- *transform*: a *nudged.Transform* instance
+- *domain*: list of [x,y] points
+- *range*: list of [x,y] points
+
+**Return** a float, the mean squared distance between the range and transformed domain point pairs.
+
+**Usage example**::
+
+    dom = [[0, 0], [1, 1], [2, 2]]
+    ran = [[0,-1], [1, 2], [2,-1]]
+    t = nudged.estimate(dom, ran)
+    mse = nudged.estimate_error(t, dom, ran)
+    # mse == 2.0
 
 
 nudged.version
